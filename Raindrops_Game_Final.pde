@@ -4,17 +4,18 @@ Score s;
 GameOver go;
 Startscreen sc;
 Flood f;
+PImage img, imgGo;            //declaring image variables
 boolean a = true;             //declaring boolean variables to control the transitions between the Startscreen, the actual game, and the Gameover screen
 boolean b = false;
 boolean d = false;
 int currentTime, oldTime, lastScore;
 int index = 0;   //declaring currentTime, oldTime, waitTime and index to control the amount of raindrops that would appear
-int time = 1000;                   //declaring time to show how long it takes for the next raindrop to fall
+int time = 100;                   //declaring time to show how long it takes for the next raindrop to fall
 int waitTime = time;              //waitime acts the same purpose as the time variable;
 int difficulty = 10;              //difficulty sets how many points the player has to get to make the game harder
 
 void setup() {
-  size(500, 500);                //size of the screen
+  size(displayWidth, displayHeight);                //size of the screen
   r = new Raindrops[100000];               //setting the value of the total amount of raindrops that can fall
   for (int i = 0; i < r.length; i++) {        //setting the value of the raindrops array variable
     r[i] = new Raindrops();
@@ -24,18 +25,22 @@ void setup() {
   go = new GameOver();
   sc = new Startscreen();
   f = new Flood();
+  img = loadImage("rain.jpg");         //loading up the images
+  imgGo = loadImage("gameover.png");
 }
 
 void draw() {
-  if (d) {                               //if 'd' is true, the gameover screen will apear
+  if (d) {                               //if 'd' is true, the gameover screen will apear width its specified image
+    image(imgGo, 0, 0,displayWidth,displayHeight);   
     go.display(s);
   }
-  if (a) {                            //if 'a' is true, the startscreen will appear
+  if (a) {                            //if 'a' is true, the startscreen will appear width its specified image
+    image(img, 0, 0, displayWidth, displayHeight);
     sc.display();
   }
   if (b) {                              // if 'b' is true, the raindrops game will start
     currentTime = millis();               //setting currentTime to equal to milliseconds
-    background(9, 27, 33);                 //the background set to dark blue;
+    image(img, 0,0,displayWidth,displayHeight);                 //the image is shown
     f.display();                         //display the flood
     c.display();                           //display the catcher
     for (int i = 0; i < index; i++) {          //display the raindrops array; the number for index will determine how many raindrops can fall
@@ -70,7 +75,7 @@ void mousePressed() {
     waitTime = time;
     lastScore = 0;
   }
-  if (mouseX > sc.loc.x && mouseX < sc.loc.x + sc.w && mouseY > sc.loc.y && mouseY < sc.loc.y + sc.h) {
+  if (mouseX > sc.loc.x - sc.d && mouseX < sc.loc.x + sc.d && mouseY > sc.loc.y - sc.d && mouseY < sc.loc.y + sc.d) {
     a=false;              //if the button in the startscreen is pressed, the startscreen will disappear and the game will start
     b=true;
   }
