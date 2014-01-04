@@ -1,6 +1,6 @@
 Raindrops_Game_Final
 ====================
-About: Move the catcher and catch as many raindrops as you possibly can.
+About: It's starting to rain. Move the catcher and prevent the raindrops from reaching the bottom. Don't let the raindrops build up into a flood or you will drown.
 
 Create a Startscreen.
 Create a GameOverscreen.
