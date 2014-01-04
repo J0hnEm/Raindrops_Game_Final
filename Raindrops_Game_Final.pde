@@ -10,7 +10,7 @@ boolean b = false;
 boolean d = false;
 int currentTime, oldTime, lastScore;
 int index = 0;   //declaring currentTime, oldTime, waitTime and index to control the amount of raindrops that would appear
-int time = 100;                   //declaring time to show how long it takes for the next raindrop to fall
+int time = 1000;                   //declaring time to show how long it takes for the next raindrop to fall
 int waitTime = time;              //waitime acts the same purpose as the time variable;
 int difficulty = 10;              //difficulty sets how many points the player has to get to make the game harder
 
@@ -67,7 +67,7 @@ void draw() {
 }
 
 void mousePressed() {
-  if (mouseX > go.loc.x && mouseX < go.loc.x + go.w && mouseY > go.loc.y && mouseY < go.loc.y + go.h) {      //if the button in the gameover screen is pressed, the given values will restart back to zero
+  if (mouseX > go.loc.x-go.d/2-go.w && mouseX < go.loc.x + go.w+go.d/2 && mouseY > go.loc.y - go.h/2 && mouseY < go.loc.y + go.h/2) {      //if the button in the gameover screen is pressed, the given values will restart back to zero
     a=true;              //the startscreen is displayed
     d=false;                 //the gameover screen is removed
     f.level = 0;                  //restarts the variables back to their original values
