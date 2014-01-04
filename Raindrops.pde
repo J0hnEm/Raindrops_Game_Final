@@ -12,7 +12,7 @@ class Raindrops {     //class for raindrops
   void display() {     //creating the raindrop
     pushMatrix();       //every code that is between the pushMatrix() and popMatrix() will only apply there 
     fill(127, 212, 242);       //the color of the raindrop is blue
-    stroke(127, 212, 242);         //the outline of the raindrop is also blue
+    stroke(0);         //the outline of the raindrop black
     translate(loc.x, loc.y);  //the raindrops will automatically appear at the specified values of loc
     ellipse(0, 0, d, d);         //creating the circle part of the raindrop
     beginShape();    //creating my own shape (triangle) that will connect with the circle part of the raindrop. (the triangle code would've worked the same way)

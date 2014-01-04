@@ -1,5 +1,5 @@
 class Catcher {          //class for making the catcher
-  int w = 40;           //declares and sets value for the width of the catcher
+  int w = displayWidth/10;           //declares and sets value for the width of the catcher
   int h;              //declaring the height of the catcher
   PVector loc;           //declaring a PVector for the location of the catcher
 
@@ -8,7 +8,7 @@ class Catcher {          //class for making the catcher
   }
 
   void display () {         //the void for the actual catcher
-    if (0 < mouseX - w/2 && mouseX +w/2 < height) {              //as long as the catcher doesn't go beyond the size of the screen, the given location of the catcher will always be true
+    if (0 < mouseX - w/2 && mouseX +w/2 < width) {              //as long as the catcher doesn't go beyond the size of the screen, the given location of the catcher will always be true
       loc = new PVector(mouseX, height*3/4);           
     }
     pushMatrix();              //pushMatrix and popMatrix closes the code in between them into its own little void

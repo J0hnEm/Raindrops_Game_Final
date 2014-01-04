@@ -10,11 +10,17 @@ class GameOver {       //class for creating the gameover screen
   }
 
   void display(Score s) {     //creating the gameover screen. 'Score s' is placed inside the parenthesis to identify variables that was used from the Score class   
-    background(44, 121, 227);   //the background is light blue
-    textSize(50);       //the text size is 50
     textAlign(CENTER);      //the origin point of the text is at its center
+    pushMatrix();
+    fill(255);                //making messages
+    textSize(30);
+    text("special message",width/2, height*1/6);
+    textSize(50);
+    text("YOU HAVE DIED", width/2, height*1/8);
+    popMatrix();
     pushMatrix();   //trapping the 'message' into its own void
     fill(255);   //the words will be in white
+    textSize(50);       //the text size is 50
     translate(gloc.x, gloc.y);      //instantly places the 'message' text to the designated values of the PVector gloc
     if (0 <= s.point && s.point < 25) {     //if the score is greater than or equal to 0 and less than 25, the message 'Mamma Mia' will appear
       text("Mamma Mia", 0, 0);
